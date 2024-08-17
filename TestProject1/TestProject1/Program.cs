@@ -21,21 +21,20 @@ namespace TestProject1
 
         public static IHostBuilder CreateHostBuilder(string[] args) =>
             Host.CreateDefaultBuilder(args)
-            .ConfigureLogging(logging =>
-            {
-                logging.ClearProviders();
-                logging.AddConsole(options =>
-                {
-                    options.IncludeScopes = true;
-                    options.TimestampFormat = "[yyyy-MM-dd HH:mm:ss]";
-                    options.DisableColors = true;
-                });
-            })
+            // .ConfigureLogging(logging =>
+            // {
+            //     logging.ClearProviders();
+            //     logging.AddConsole(options =>
+            //     {
+            //         options.IncludeScopes = true;
+            //         options.TimestampFormat = "[yyyy-MM-dd HH:mm:ss]";
+            //         options.DisableColors = true;
+            //     });
+            // })
             .ConfigureWebHostDefaults(webBuilder =>
             {
                 webBuilder.UseStartup<Startup>();
             })
-            //.UseSerilog(dispose: true)
-            ;
+            .UseSerilog(dispose: true);
     }
 }
